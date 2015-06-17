@@ -1,5 +1,5 @@
 FROM ubuntu:14.04
-MAINTAINER Matt Smith, mtscout6@gmail.com
+MAINTAINER Fabio Martins, fabio@wearepixelmatters.com
 
 RUN apt-get update -y \
   && apt-get install -y --no-install-recommends \
@@ -7,12 +7,13 @@ RUN apt-get update -y \
   curl \
   git \
   unzip \
+  nodejs \
   openjdk-7-jre-headless \
   && rm -rf /var/lib/apt/lists/*
 
 ENV JAVA_HOME /usr/lib/jvm/java-7-openjdk-amd64
 
-RUN wget -O /tmp/gocd-agent.deb http://download.go.cd/gocd-deb/go-agent-14.2.0-377.deb \
+RUN wget -O /tmp/gocd-agent.deb http://download.go.cd/gocd-deb/go-agent-15.1.0-1863.deb \
   && apt-get update -y \
   && sudo dpkg -i /tmp/gocd-agent.deb \
   && rm /tmp/gocd-agent.deb \
